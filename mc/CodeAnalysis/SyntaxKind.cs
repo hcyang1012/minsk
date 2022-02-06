@@ -4,7 +4,7 @@ namespace Minsk.CodeAnalysis
   {
     // Tokens
     BadToken,
-    EndOfFileToken,    
+    EndOfFileToken,
     WhiteSpaceToken,
     NumberToken,
     PlusToken,
@@ -13,7 +13,7 @@ namespace Minsk.CodeAnalysis
     SlashToken,
     OpenParenthesisToken,
     CloseParenthesisToken,
-    
+
     //Expressions
     LiteralExpression,
     BinaryExpression,
