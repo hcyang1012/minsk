@@ -5,11 +5,11 @@ using Minsk.CodeAnalysis;
 
 namespace Minsk
 {
-  class Program
+  internal static class Program
   {
-    static void Main(string[] args)
+    private static void Main()
     {
-      bool showTree = false;
+      var showTree = false;
       while (true)
       {
         Console.Write("> ");
@@ -36,22 +36,20 @@ namespace Minsk
 
         if (showTree)
         {
-          var color = Console.ForegroundColor;
           Console.ForegroundColor = ConsoleColor.DarkGray;
           PrettyPrint(syntaxTree.Root);
-          Console.ForegroundColor = color;
+          Console.ResetColor();
         }
 
 
         if (syntaxTree.Diagnostics.Any())
         {
-          var color = Console.ForegroundColor;
           Console.ForegroundColor = ConsoleColor.DarkBlue;
           foreach (var diagnostic in syntaxTree.Diagnostics)
           {
             Console.WriteLine(diagnostic);
           }
-          Console.ForegroundColor = color;
+          Console.ResetColor();
         }
         else
         {
@@ -65,9 +63,6 @@ namespace Minsk
     static void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true)
     {
 
-      //├──
-      //│
-      //└─
       var marker = isLast ? "└──" : "├──";
       Console.Write(indent);
       Console.Write(marker);
